@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Use the following line if you booted the machine with a static IP
-sudo echo "127.0.0.1 ip-10-165-20-2" >>/etc/hosts
+sudo echo "127.0.0.1 ip-10-165-40-100" >>/etc/hosts
 wget -O install_salt.sh https://bootstrap.saltstack.com
 sudo sh install_salt.sh
 sudo echo "file_client: local" >>/etc/salt/minion

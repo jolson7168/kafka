@@ -11,7 +11,7 @@ echo "local: True" >>/etc/salt/minion
 service salt-minion stop
 yum -y install -y git
 yum -y install -y python-pygit2
-sudo mkdir /srv/salt
+mkdir /srv/salt
 git clone https://github.com/jolson7168/kafka.git /home/centos/kafka
-sudo cp -R /home/centos/kafka/salt/* /srv/salt
+cp -R /home/centos/kafka/salt/* /srv/salt
 salt-call --local state.highstate --state-verbose=False

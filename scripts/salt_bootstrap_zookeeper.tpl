@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # Use the following line if you booted the machine with a static IP
-echo "127.0.0.1 ip-10-165-40-100" >>/etc/hosts
+hostnamectl set-hostname ${hostname}
+echo "127.0.0.1 ${hostname}" >>/etc/hosts
+echo "${local_ip} ${hostname}" >>/etc/hosts
 yum -y update
 yum -y install wget
 wget -O install_salt.sh https://bootstrap.saltstack.com
@@ -14,6 +16,7 @@ echo "  - git" >>/etc/salt/minion
 echo "" >>/etc/salt/minion
 echo "gitfs_remotes:" >>/etc/salt/minion
 echo "  - https://github.com/jolson7168/sun-java-formula.git" >>/etc/salt/minion
+echo "  - https://github.com/jolson7168/zookeeper-formula.git" >>/etc/salt/minion
 service salt-minion stop
 yum -y install -y git
 yum -y install -y python-pygit2

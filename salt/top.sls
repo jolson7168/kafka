@@ -4,4 +4,5 @@ base:
     - unzip
     - sun-java
     - sun-java.env
-
+    - zookeeper
+    - zookeeper.server
